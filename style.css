@@ -1,0 +1,187 @@
+:root {
+    --primary: #2c3e50;
+    --secondary: #27ae60;
+    --danger: #e74c3c;
+    --light: #f8f9fa;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #e9ecef;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    max-width: 500px;
+    width: 100%;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 3px solid var(--secondary);
+    padding-bottom: 15px;
+}
+
+header h1 {
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+header p {
+    color: #666;
+    margin: 5px 0;
+}
+
+.price-info {
+    color: var(--secondary);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group small {
+    display: block;
+    color: var(--secondary);
+    font-size: 0.85rem;
+    margin-top: 4px;
+    font-style: italic;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+button {
+    width: 100%;
+    background: var(--secondary);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+}
+
+button:hover {
+    background: #219150;
+    transform: translateY(-2px);
+}
+
+.invoice-box {
+    margin-top: 2rem;
+    padding: 20px;
+    background: var(--light);
+    border-left: 5px solid var(--secondary);
+    border-radius: 8px;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.invoice-header {
+    background: white;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.invoice-details {
+    margin: 15px 0;
+    line-height: 1.8;
+}
+
+.calculation-details {
+    background: #fff;
+    padding: 15px;
+    border-radius: 6px;
+    margin: 15px 0;
+    border-left: 3px solid #3498db;
+}
+
+.calculation-details p {
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+.discount-note {
+    color: #27ae60;
+    font-size: 0.9rem;
+    padding-left: 20px;
+    font-style: italic;
+}
+
+hr {
+    border: none;
+    border-top: 1px dashed #ccc;
+    margin: 15px 0;
+}
+
+.total-section {
+    font-size: 1.5rem;
+    color: var(--secondary);
+    border-top: 2px solid var(--secondary);
+    margin-top: 15px;
+    padding-top: 15px;
+    text-align: center;
+    background: white;
+    padding: 15px;
+    border-radius: 6px;
+}
+
+.total-section span {
+    font-weight: bold;
+    font-size: 1.7rem;
+}
+
+.eco-friendly {
+    font-size: 0.85rem;
+    color: #27ae60;
+    font-style: italic;
+    text-align: center;
+    margin-top: 15px;
+    padding: 10px;
+    background: #d5f4e6;
+    border-radius: 6px;
+}
