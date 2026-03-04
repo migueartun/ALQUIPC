@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-    background: rgb(90, 167, 255);
+    background: rgb(255, 126, 126);
     max-width: 500px;
     margin: 0 auto;
     padding: 20px;
@@ -58,7 +58,7 @@ select {
 button {
     width: 100%;
     padding: 10px;
-    background-color: #27ae60;
+    background-color: #86b0ff;
     color: white;
     border: none;
     border-radius: 4px;
@@ -68,7 +68,7 @@ button {
 }
 
 button:hover {
-    background-color: #219150;
+    background-color: #6effaa;
 }
 
 .invoice-box {
