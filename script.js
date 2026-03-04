@@ -17,6 +17,16 @@ document.getElementById('btnCalcular').addEventListener('click', function () {
         return;
     }
 
+    if (diasIni < 1) {
+        alert("Los días iniciales deben ser mayor a 0.");
+        return;
+    }
+
+    if (diasAdi < 0) {
+        alert("Los días adicionales no pueden ser negativos.");
+        return;
+    }
+
     if (!nombreCliente) {
         alert("Por favor ingrese el nombre del cliente.");
         return;
