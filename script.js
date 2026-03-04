@@ -7,11 +7,35 @@ document.getElementById('btnCalcular').addEventListener('click', function () {
     const numEquipos = parseInt(document.getElementById('equipos').value);
     const diasIni = parseInt(document.getElementById('diasIniciales').value);
     const diasAdi = parseInt(document.getElementById('diasAdicionales').value) || 0;
+    const nombreCliente = document.getElementById('nombreCliente').value.trim();
+    const telefono = document.getElementById('telefono').value.trim();
     const email = document.getElementById('email').value;
 
     
     if (numEquipos < 2) {
         alert("ALQUIPC requiere un alquiler mínimo de 2 equipos.");
+        return;
+    }
+
+    if (!nombreCliente) {
+        alert("Por favor ingrese el nombre del cliente.");
+        return;
+    }
+
+    const regexNombre = /^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$/;
+    if (!regexNombre.test(nombreCliente)) {
+        alert("El nombre solo puede contener letras y espacios.");
+        return;
+    }
+
+    if (!telefono) {
+        alert("Por favor ingrese el teléfono del cliente.");
+        return;
+    }
+
+    const regexTelefono = /^[0-9]+$/;
+    if (!regexTelefono.test(telefono)) {
+        alert("El teléfono solo puede contener números.");
         return;
     }
 
@@ -47,13 +71,12 @@ document.getElementById('btnCalcular').addEventListener('click', function () {
     const modalTxt = document.getElementById('modalidad').options[document.getElementById('modalidad').selectedIndex].text;
     
     let detalleDescuentosIncrementos = `<div class="calculation-details">
-        <p><strong>📋 Cálculo detallado:</strong></p>
+        <p><strong> Cálculo detallado:</strong></p>
         <p>• Días iniciales: ${diasIni} días × ${numEquipos} equipos × $${VALOR_DIA_BASE.toLocaleString()} = $${costoDiasIni.toLocaleString()}</p>`;
     
     if (diasAdi > 0) {
         detalleDescuentosIncrementos += `
-        <p>• Días adicionales: ${diasAdi} días × ${numEquipos} equipos × $${valorDiaConDcto.toLocaleString()} = $${costoDiasAdi.toLocaleString()}</p>
-        <p class="discount-note">  → Descuento del 2% aplicado a días adicionales ($${(VALOR_DIA_BASE - valorDiaConDcto).toLocaleString()} menos por día)</p>`;
+        <p>• Días adicionales: ${diasAdi} días × ${numEquipos} equipos × $${valorDiaConDcto.toLocaleString()} = $${costoDiasAdi.toLocaleString()}</p>`;
     }
     
     detalleDescuentosIncrementos += `<p><strong>Subtotal antes de ajustes:</strong> $${(costoDiasIni + costoDiasAdi).toLocaleString()}</p>`;
@@ -70,15 +93,17 @@ document.getElementById('btnCalcular').addEventListener('click', function () {
 
     document.getElementById('detalleFactura').innerHTML = `
         <div class="invoice-header">
-            <p><strong>🆔 ID Cliente:</strong> ${idCliente}</p>
-            <p><strong>📧 Email:</strong> ${email}</p>
+            <p><strong> nombre del Cliente:</strong> ${nombreCliente}</p>
+            <p><strong> ID Cliente:</strong> ${idCliente}</p>
+            <p><strong> Teléfono:</strong> ${telefono}</p>
+            <p><strong> Email:</strong> ${email}</p>
         </div>
         <hr>
         <div class="invoice-details">
-            <p><strong>📍 Opción de alquiler:</strong> ${modalTxt}</p>
-            <p><strong>💻 Equipos alquilados:</strong> ${numEquipos} equipos</p>
-            <p><strong>📅 Días de alquiler:</strong> ${diasIni} día${diasIni > 1 ? 's' : ''} iniciales</p>
-            <p><strong>➕ Días adicionales:</strong> ${diasAdi} día${diasAdi !== 1 ? 's' : ''}</p>
+            <p><strong> Opción de alquiler:</strong> ${modalTxt}</p>
+            <p><strong> Equipos alquilados:</strong> ${numEquipos} equipos</p>
+            <p><strong> Días de alquiler:</strong> ${diasIni} día${diasIni > 1 ? 's' : ''} iniciales</p>
+            <p><strong> Días adicionales:</strong> ${diasAdi} día${diasAdi !== 1 ? 's' : ''}</p>
         </div>
         <hr>
         ${detalleDescuentosIncrementos}

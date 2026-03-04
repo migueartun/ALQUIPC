@@ -11,15 +11,14 @@
 <body>
     <div class="container">
         <header>
-            <h1>💻 ALQUIPC</h1>
-            <p>Sistema de Facturación - Alquiler de Equipos de Cómputo</p>
-            <p class="price-info">$35.000 por equipo/día</p>
+            <h1>ALQUIPC</h1>
+            <p class="price-info">$35.000 por equipo al día</p>
         </header>
-
         <form id="billingForm">
             <div class="form-group">
                 <label for="modalidad">Modalidad de Alquiler:</label>
                 <select id="modalidad" required>
+                    
                     <option value="1">Dentro de la ciudad</option>
                     <option value="2">Fuera de la ciudad (+5% domicilio)</option>
                     <option value="3">En el establecimiento (-5% descuento)</option>
@@ -27,7 +26,7 @@
             </div>
 
             <div class="form-group">
-                <label for="equipos">Número de Equipos (Mínimo 2):</label>
+                <label for="equipos">Número de equipos mínimo 2:</label>
                 <input type="number" id="equipos" min="2" value="2" required>
             </div>
 
@@ -39,16 +38,25 @@
                 <div class="form-group">
                     <label for="diasAdicionales">Días Adicionales:</label>
                     <input type="number" id="diasAdicionales" min="0" value="0">
-                    <small>-2% por día adicional</small>
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="email">Correo del Cliente:</label>
-                <input type="email" id="email" placeholder="ejemplo@correo.com" required>
+                <label for="nombreCliente">Nombre del Cliente:</label>
+                <input type="text" id="nombreCliente" placeholder="" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]+" required>
             </div>
 
-            <button type="button" id="btnCalcular">📄 Generar Factura Digital</button>
+            <div class="form-group">
+                <label for="telefono">Teléfono del Cliente:</label>
+                <input type="tel" id="telefono" placeholder="" inputmode="numeric" pattern="[0-9]+" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Correo del Cliente:</label>
+                <input type="email" id="email" placeholder="" required>
+            </div>
+
+            <button type="button" id="btnCalcular">Generar Factura Digital</button>
         </form>
 
         <div id="factura" class="invoice-box hidden">
@@ -57,7 +65,6 @@
             <div class="total-section">
                 <p><strong>Total a Pagar:</strong> <span id="totalFinal"></span></p>
             </div>
-            <p class="eco-friendly">🍃 Gracias por ayudar al planeta. Factura enviada por E-mail.</p>
         </div>
     </div>
     <script src="script.js"></script>
