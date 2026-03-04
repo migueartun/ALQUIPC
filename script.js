@@ -1,15 +1,3 @@
-document.getElementById('diasIniciales').addEventListener('input', function(e) {
-    if (this.value.length > 1 && this.value.startsWith('0')) {
-        this.value = parseInt(this.value, 10) || '';
-    }
-});
-
-document.getElementById('diasAdicionales').addEventListener('input', function(e) {
-    if (this.value.length > 1 && this.value.startsWith('0')) {
-        this.value = parseInt(this.value, 10) || '';
-    }
-});
-
 document.getElementById('btnCalcular').addEventListener('click', function () {
     const VALOR_DIA_BASE = 35000;
     const DESCUENTO_DIA_EXTRA = 0.02; 
