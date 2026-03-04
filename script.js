@@ -2,7 +2,7 @@ document.getElementById('btnCalcular').addEventListener('click', function () {
     const VALOR_DIA_BASE = 35000;
     const DESCUENTO_DIA_EXTRA = 0.02; 
 
-   
+    
     const modalidad = document.getElementById('modalidad').value;
     const numEquipos = parseInt(document.getElementById('equipos').value);
     const diasIni = parseInt(document.getElementById('diasIniciales').value);
